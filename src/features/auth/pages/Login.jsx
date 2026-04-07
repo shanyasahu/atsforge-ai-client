@@ -1,69 +1,60 @@
 import { Link } from "react-router";
-import { useAuth } from "../../hooks/use.auth";
+import { useAuth } from "../../hooks/useAuth";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
 const Login = () => {
   const { loading, handleLogin } = useAuth();
-
   const navigate = useNavigate();
 
-  //two way binding for handling input feilds data
   const [email, setEmail] = useState("");
-
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await handleLogin({ email, password });
-    navigate("/");
 
-    if (loading) {
-      return (
-        <main>
-          <h1 className="text-5xl font-bold">Loding....</h1>
-        </main>
-      );
-    }
+    await handleLogin({ email, password });
+
+    navigate("/");
   };
+
+  if (loading) {
+    return (
+      <main className="flex justify-center items-center h-screen">
+        <h1 className="text-5xl font-bold">Loading...</h1>
+      </main>
+    );
+  }
 
   return (
     <main className="flex justify-center items-center w-full h-screen flex-col">
-      <form>
+      <form onSubmit={handleSubmit}>
         <h2>Login Form</h2>
 
         <div>
-          <label htmlFor="email">Email</label>
+          <label>Email</label>
           <br />
           <input
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
             type="email"
-            name="email"
-            id="email"
             placeholder="enter an email"
             className="border-2 border-b-black"
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
         <div>
-          <label htmlFor="password">password</label>
+          <label>Password</label>
           <br />
           <input
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
             type="password"
-            name="password"
-            id="password"
-            placeholder="enter an password"
+            placeholder="enter password"
             className="border-2 border-b-black"
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
         <button
-          onClick={handleSubmit}
+          type="submit"
           className="bg-black py-2 px-6 rounded-2xl text-white my-2"
         >
           Login
@@ -71,7 +62,7 @@ const Login = () => {
       </form>
 
       <p>
-        Don't have an account? <Link to={"/register"}>Register</Link>
+        Don't have an account? <Link to="/register">Register</Link>
       </p>
     </main>
   );
