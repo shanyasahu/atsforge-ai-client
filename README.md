@@ -13,3 +13,6 @@ Interview Preparation Insights
 Fast and modern UI using React + Vite
 Client side routing with React Router
 API communication via Axios
+
+
+Folder Structure - Feature-Based 
