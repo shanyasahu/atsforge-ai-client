@@ -133,10 +133,6 @@ const Register = () => {
                 <label className="text-xs tracking-widest uppercase">
                   Password
                 </label>
-
-                <span className="text-xs text-(--primary) cursor-pointer">
-                  Forgot password?
-                </span>
               </div>
 
               <div className="relative">

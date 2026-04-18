@@ -6,7 +6,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="px-4 py-2 rounded-lg bg-[var(--primary)] text-white"
+      className="px-4 py-2 rounded-lg bg-(--primary) text-white"
     >
       {theme === "dark" ? "☀ Light" : "🌙 Dark"}
     </button>

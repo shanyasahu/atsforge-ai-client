@@ -3,10 +3,10 @@ import { useAuth } from "../../hooks/useAuth";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import LeftSection from "../components/left-section";
-import google from "../../../assets/google.svg";
 import { IoEyeSharp } from "react-icons/io5";
 import { BsEyeSlashFill } from "react-icons/bs";
 import toast from "react-hot-toast";
+import GoogleLoginButton from "../components/continue-with-google/GoogleLoginButton";
 
 const Login = () => {
   const { loading, handleLogin } = useAuth();
@@ -152,11 +152,9 @@ const Login = () => {
           </div>
 
           {/* GOOGLE LOGIN */}
-          <button className="flex items-center justify-center gap-3 border border-[#1E293B] rounded-full py-3 hover:bg-[#0B1326] transition">
-            <img src={google} alt="google-icon" className="w-5 h-5" />
-            <span className="text-sm">Google</span>
-          </button>
-
+          <div className="flex justify-center items-center">
+            <GoogleLoginButton />
+          </div>
           {/* REGISTER */}
           <p className="text-center text-sm">
             Don't have an account?{" "}

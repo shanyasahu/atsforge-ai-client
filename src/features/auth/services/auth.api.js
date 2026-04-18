@@ -46,6 +46,21 @@ export async function logout() {
 export async function getMe() {
   try {
     const response = await api.get("/api/v1/auth/get-me");
+    return response.data;
+  } catch (err) {
+    if (err.response?.status === 401) {
+      return null; // user not logged in
+    }
+
+    console.error(err);
+  }
+}
+
+export async function googleLogin(credential) {
+  try {
+    const response = await api.post("/api/v1/auth/google", {
+      credential,
+    });
 
     return response.data;
   } catch (err) {

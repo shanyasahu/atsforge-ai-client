@@ -1,12 +1,18 @@
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../auth/context/auth.context";
-import { login, register, logout, getMe } from "../auth/services/auth.api";
+import {
+  login,
+  register,
+  logout,
+  getMe,
+  googleLogin,
+} from "../auth/services/auth.api";
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
-
   const { user, setUser, loading, setLoading } = context;
 
+  // LOGIN
   const handleLogin = async ({ email, password }) => {
     setLoading(true);
 
@@ -26,6 +32,7 @@ export const useAuth = () => {
     }
   };
 
+  // REGISTER
   const handleRegister = async ({ username, email, password }) => {
     setLoading(true);
 
@@ -45,6 +52,30 @@ export const useAuth = () => {
     }
   };
 
+  // GOOGLE LOGIN
+  const handleGoogleLogin = async (credential) => {
+    setLoading(true);
+
+    try {
+      await googleLogin(credential);
+
+      const data = await getMe();
+
+      if (data?.user) {
+        setUser(data.user);
+        return true;
+      }
+
+      return false;
+    } catch (err) {
+      console.error(err);
+      return false;
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // LOGOUT
   const handleLogout = async () => {
     setLoading(true);
 
@@ -59,28 +90,14 @@ export const useAuth = () => {
     }
   };
 
-  useEffect(() => {
-    const getAndSetUser = async () => {
-      try {
-        const data = await getMe();
-
-        if (data?.user) {
-          setUser(data.user);
-          return true;
-        } else {
-          setUser(null);
-          return false;
-        }
-      } catch (err) {
-        setUser(null);
-        return false;
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    getAndSetUser();
-  }, [[setUser, setLoading]]);
-
-  return { user, loading, handleLogin, handleRegister, handleLogout };
+  return {
+    user,
+    loading,
+    setUser,
+    setLoading,
+    handleLogin,
+    handleRegister,
+    handleLogout,
+    handleGoogleLogin,
+  };
 };
