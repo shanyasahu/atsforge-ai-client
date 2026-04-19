@@ -3,16 +3,16 @@ import Login from "./features/auth/pages/Login";
 import Register from "./features/auth/pages/Register";
 import ProtectedRoute from "./features/auth/components/route-guards/ProtectedRoute";
 import GuestRoute from "./features/auth/components/route-guards/GuestRoute";
-import Home from "./features/home/Home";
+import Home from "./features/home/pages/Home";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <ProtectedRoute>
+      <GuestRoute>
         <Home />
-      </ProtectedRoute>
-    ), //  home page
+      </GuestRoute>
+    ),
   },
   {
     path: "/login",

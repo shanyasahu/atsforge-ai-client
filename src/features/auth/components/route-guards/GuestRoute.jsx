@@ -8,11 +8,7 @@ function GuestRoute({ children }) {
     return <h1>Loading...</h1>;
   }
 
-  if (user) {
-    return <Navigate to="/" />;
-  }
-
-  return children;
+  return user ? <Navigate to="/dashboard" /> : children;
 }
 
 export default GuestRoute;
