@@ -21,7 +21,7 @@ const GoogleLoginButton = () => {
           // console.log("STEP 3 ✅ getMe result:", data);
 
           if (data?.user) setUser(data.user);
-          navigate("/");
+          navigate("/dashboard");
         } catch (err) {
           console.error("❌ EXACT ERROR:", err.message, err);
         }

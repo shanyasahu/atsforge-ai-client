@@ -52,7 +52,7 @@ const Login = () => {
 
       if (res) {
         toast.success("Login successfully 🎉");
-        navigate("/");
+        navigate("/dashboard");
       } else {
         toast.error("Invalid credentials");
       }

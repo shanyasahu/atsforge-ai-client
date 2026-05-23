@@ -84,7 +84,7 @@ const HeroSection = () => {
         <div className="flex justify-center lg:justify-end">
           <div className="relative w-full max-w-[400px]">
             <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-[var(--primary)]/25 via-transparent to-transparent" />
-            <div className="relative rounded-2xl border border-[var(--primary)]/15 bg-[#111827] p-7 shadow-[0_32px_80px_rgba(0,0,0,0.4)]">
+            <div className="relative rounded-2xl border border-[var(--primary)]/15 bg-[var(--bg)] p-7 shadow-[0_32px_80px_rgba(0,0,0,0.4)]">
               <div className="flex items-center justify-between mb-5">
                 <div className="flex flex-col gap-1.5">
                   <div className="h-2 w-28 rounded-full bg-white/20" />
@@ -117,20 +117,20 @@ const HeroSection = () => {
 
               <div className="flex items-end justify-between mb-4">
                 <div>
-                  <p className="text-[10px] uppercase tracking-widest text-white/40 mb-1 font-semibold">
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--subtext)] mb-1 font-semibold">
                     ATS Score
                   </p>
                   <div className="flex items-baseline gap-1">
                     <span className="text-5xl font-black text-[var(--primary)] leading-none font-['Plus_Jakarta_Sans']">
                       94
                     </span>
-                    <span className="text-white/40 text-sm font-semibold">
+                    <span className="text-[var(--subtext)] text-sm font-semibold">
                       /100
                     </span>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-[10px] uppercase tracking-widest text-white/40 mb-1 font-semibold">
+                  <p className="text-[10px] uppercase tracking-widest text-[var(--subtext)] mb-1 font-semibold">
                     Improvement
                   </p>
                   <span className="text-[var(--primary)] font-bold text-lg">

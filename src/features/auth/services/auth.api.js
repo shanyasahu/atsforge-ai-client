@@ -67,3 +67,19 @@ export async function googleLogin(credential) {
     console.log(err);
   }
 }
+
+// export async function interviewReport({
+//   resume,
+//   selfDescription,
+//   jobDescription,
+// }) {
+//   try {
+//     const response = await api.post("/api/v1/auth/interview", {
+//       credential,
+//     });
+
+//     return response.data;
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }

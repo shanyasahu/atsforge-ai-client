@@ -4,6 +4,9 @@ import Register from "./features/auth/pages/Register";
 import ProtectedRoute from "./features/auth/components/route-guards/ProtectedRoute";
 import GuestRoute from "./features/auth/components/route-guards/GuestRoute";
 import Home from "./features/home/pages/Home";
+import Dashboard from "./features/dashboard/pages/Dashboard";
+import InterviewReport from "./features/dashboard/pages/InterviewReport";
+import DashboardLayout from "./features/dashboard/layouts/DashboardLayout";
 
 export const router = createBrowserRouter([
   {
@@ -29,5 +32,26 @@ export const router = createBrowserRouter([
         <Register />
       </GuestRoute>
     ),
+  },
+  // Protected Dashboard Layout
+  {
+    path: "/dashboard",
+    element: (
+      <ProtectedRoute>
+        <DashboardLayout />
+      </ProtectedRoute>
+    ),
+
+    children: [
+      {
+        index: true,
+        element: <Dashboard />,
+      },
+
+      {
+        path: "interview-report",
+        element: <InterviewReport />,
+      },
+    ],
   },
 ]);
