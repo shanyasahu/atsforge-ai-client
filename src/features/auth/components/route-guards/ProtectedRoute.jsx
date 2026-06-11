@@ -1,3 +1,4 @@
+import Loading from "../../../components/Loading";
 import { useAuth } from "../../../hooks/useAuth";
 import { Navigate } from "react-router";
 
@@ -5,7 +6,7 @@ function Protected({ children }) {
   const { user, loading } = useAuth();
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return <Loading/>;
   }
   // Protected Route - Page accessible only to logged-in users
   if (!user) {

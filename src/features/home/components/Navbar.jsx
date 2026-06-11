@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router";
 import ThemeToggle from "../../theme/components/ThemeToggle";
+import logo from "../../../assets/logo.png";
+import Logo from "../../components/Logo";
 
 const navLinks = ["Home", "Features", "Pricing", "About"];
 
@@ -14,19 +16,18 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-[var(--bg)]/90 border-b border-[var(--nav-border)] backdrop-blur-xl">
+    <nav className="sticky top-0 z-50 bg-(--bg)/90 border-b border-(--nav-border) backdrop-blur-xl">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-8">
         {/* Logo */}
         <Link
           to="/"
-          className="text-[var(--primary)] font-black text-lg tracking-tight font-['Plus_Jakarta_Sans'] no-underline shrink-0 flex items-center gap-2"
+          className="text-(--primary) font-black text-lg tracking-tight font-['Plus_Jakarta_Sans'] no-underline shrink-0 flex items-center gap-2"
         >
-          <span className="w-6 h-6 rounded-md bg-[var(--primary)] flex items-center justify-center shrink-0">
-            <span className="text-[var(--btntext)] text-[10px] font-black">
-              A
-            </span>
+          {/* <span className="w-6 h-6 rounded-md bg-(--primary) flex items-center justify-center shrink-0">
+            <span className="text-(--btntext) text-[10px] font-black">A</span>
           </span>
-          ATSForge-AI
+          ATSForge-AI */}
+          <Logo />
         </Link>
 
         {/* Desktop Nav Links */}

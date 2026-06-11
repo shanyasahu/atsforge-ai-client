@@ -107,7 +107,7 @@ const Register = () => {
                 name="username"
                 id="username"
                 placeholder="your username"
-                className="bg-[#020B1E] border border-[#1E293B] rounded-full px-5 py-3 text-sm outline-none focus:border-(--primary)"
+                className="bg-(--input-bg) border border-[#1E293B] rounded-full px-5 py-3 text-sm outline-none focus:border-(--primary)"
               />
             </div>
 
@@ -123,7 +123,7 @@ const Register = () => {
                 name="email"
                 id="email"
                 placeholder="name@company.com"
-                className="bg-[#020B1E] border border-[#1E293B] rounded-full px-5 py-3 text-sm outline-none focus:border-(--primary)"
+                className="bg-(--input-bg) border border-[#1E293B] rounded-full px-5 py-3 text-sm outline-none focus:border-(--primary)"
               />
             </div>
 
@@ -139,7 +139,7 @@ const Register = () => {
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="••••••••"
-                  className="bg-[#020B1E] border border-[#1E293B] rounded-full px-5 py-3 text-sm outline-none focus:border-(--primary) w-full pr-12"
+                  className="bg-(--input-bg) border border-[#1E293B] rounded-full px-5 py-3 text-sm outline-none focus:border-(--primary) w-full pr-12"
                   onChange={(e) => setPassword(e.target.value)}
                 />
 

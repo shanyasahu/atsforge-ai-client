@@ -1,5 +1,6 @@
 //for using login and register page common left section
 import frogBg from "../../../../assets/frog.svg";
+import Logo from "../../../components/Logo";
 
 function LeftSection({ title }) {
   return (
@@ -14,9 +15,9 @@ function LeftSection({ title }) {
           <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/70 to-black/90"></div>
 
           {/* CONTENT */}
-          <div className="relative z-10 flex flex-col h-full justify-between">
+          <div className="relative z-10 flex flex-col h-full justify-between items-start">
             {/* Logo */}
-            <div className="flex items-center gap-2">
+            {/* <div className="flex items-center gap-2">
               <div className="w-8 h-8 bg-green-500 rounded-md flex items-center justify-center">
                 <svg
                   width="21"
@@ -34,8 +35,8 @@ function LeftSection({ title }) {
               <span className="font-semibold text-green-400 text-lg">
                 ATSForge-AI
               </span>
-            </div>
-
+            </div> */}
+            <Logo />
             <div className="flex gap-6 flex-col">
               {/* Center Content */}
               <div className="max-w-lg">
